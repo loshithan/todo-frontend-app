@@ -36,3 +36,50 @@
     transform: rotate(360deg);
   }
 }
+
+.custom-container {
+  max-width: 768px;
+  margin: 0 auto; 
+}
+
+@media (max-width: 767px) {
+  
+  .custom-container {
+    max-width: none; 
+  }
+}
+.todo-item{
+  background-color: #3d3d3d;
+}
+.bg-green{
+  background-color: #2bd885 !important;
+}
+.bg-light-grey{
+  background-color: #5c5c5c !important;
+}
+.bg-dark-grey
+{
+  background-color: #343434 !important;
+}
+.bg-greyblack{
+  background-color: #1e1e1e;
+}
+.text-greenish{
+  color:#2bd885 !important ;
+}
+.text-blur-grey{
+  color: #97979b;
+}
+.btn-custom-greenish{
+  border-color: #2bd885!important;
+}
+.btn-custom-greyish{
+  border-color: #5c5c5c !important;
+
+}
+.btn-custom-icon{
+  border-color: #3e3e3e !important;
+  background-color:#3e3e3e !important ;
+  
+}
+
