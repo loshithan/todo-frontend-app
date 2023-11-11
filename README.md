@@ -1,6 +1,38 @@
-# Getting Started with Create React App
+# Getting Started with todo App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+
+## Getting Started
+
+Follow these steps to get started with the todo-frontend-app:
+
+1. Clone this repository to your local machine:
+
+   ```bash
+   git clone https://github.com/yourusername/todo-frontend-app.git
+   ```
+
+2. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Copy the `.env` file:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Replace the environment variable in the newly created `.env` file with your configuration.
+
+5. Start the server:
+
+   ```bash
+   npm start
+   ```
 
 ## Available Scripts
 
