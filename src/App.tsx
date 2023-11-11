@@ -8,11 +8,12 @@ import { CompletedTodo } from './components/CompletedTodo';
 import { PendingTodo } from './components/PendingTodos';
 import { fetchTodos } from './apiService';
 import { Todos } from './types';
+import CircleLoader from 'react-spinners/RingLoader'
 
 
 function App() {
   const [todos, setTodos] = useState<Todos>({ todos: [] });
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   //unique key to re-render component
   const [key, setKey] = useState(0);
@@ -51,48 +52,54 @@ function App() {
 
         </div>
       </Container>
+
       <Container>
-        //render form component
         <FormInput key={key} onChange={() => (setKey((prevKey) => prevKey + 1))} />
       </Container>
 
-      <Container>
-        <Router>
-          <Stack>
-            <Container className='my-3'>
+      
+      {
+      //display loading component until webapi fetch
+      loading ?
+        <Stack className="spinner-container">
+          <CircleLoader
+            loading={loading}
+            size={100}
+            color='#2bd885'
+          />
+        </Stack > : <Container>
+          <Router>
+            <Stack>
+              <Container className='my-3'>
 
-              {
-                          //display loading untill fetch
-
-              loading ? <div>Loading...</div> : <Stack direction='horizontal' className='ps-3'>
-                <Link to="/pending"><Button className='rounded-0 bg-green btn-custom-greenish'>Todo</Button></Link>
-
-
-
-                <Link to="/completed"><Button className='rounded-0 bg-light-grey btn-custom-greyish'>Completed</Button></Link>
-
-              </Stack>}
-
-
-
-            </Container>
-
-            <Routes>
-              
-            //render pending todos on base route
-              <Route path="/" element={<PendingTodo todos={todos} onChange={() => (setKey((prevKey) => prevKey + 1))} />} />
-
-            //render pending todos component
-              <Route path="/pending" element={<PendingTodo todos={todos} onChange={() => (setKey((prevKey) => prevKey + 1))} />} />
-
-            //render completed todos component
-              <Route path="/completed" element={<CompletedTodo todos={todos} onChange={() => (setKey((prevKey) => prevKey + 1))} />} />
-            </Routes>
+                <Stack direction='horizontal' className='ps-3'>
+                  <Link to="/pending"><Button className='rounded-0 bg-green btn-custom-greenish'>Todo</Button></Link>
 
 
-          </Stack>
-        </Router>
-      </Container>
+
+                  <Link to="/completed"><Button className='rounded-0 bg-light-grey btn-custom-greyish'>Completed</Button></Link>
+
+                </Stack>
+
+
+
+              </Container>
+
+              <Routes>
+
+                <Route path="/" element={<PendingTodo todos={todos} onChange={() => (setKey((prevKey) => prevKey + 1))} />} />
+
+                <Route path="/pending" element={<PendingTodo todos={todos} onChange={() => (setKey((prevKey) => prevKey + 1))} />} />
+
+                <Route path="/completed" element={<CompletedTodo todos={todos} onChange={() => (setKey((prevKey) => prevKey + 1))} />} />
+              </Routes>
+
+
+            </Stack>
+          </Router>
+        </Container>
+      }
+
 
 
 
