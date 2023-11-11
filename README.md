@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Getting Started
 
-Follow these steps to get started with the ScholarX backend:
+Follow these steps to get started with the todo-frontend-app:
 
 1. Clone this repository to your local machine:
 
