@@ -2,12 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Prerequisites
 
-Before you can start using this project, make sure you have the following installed on your machine:
-
-- Node.js (version 14 or later)
-- npm (version 6 or later)
 
 ## Getting Started
 
@@ -16,7 +11,7 @@ Follow these steps to get started with the ScholarX backend:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/scholarx-backend.git
+   git clone https://github.com/yourusername/todo-frontend-app.git
    ```
 
 2. Install the dependencies:
@@ -31,7 +26,7 @@ Follow these steps to get started with the ScholarX backend:
    cp .env.example .env
    ```
 
-4. Replace the environment variables in the newly created `.env` file with your configuration.
+4. Replace the environment variable in the newly created `.env` file with your configuration.
 
 5. Start the server:
 
