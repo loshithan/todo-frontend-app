@@ -72,14 +72,50 @@
 }
 .btn-custom-greenish{
   border-color: #2bd885!important;
+  transition:all 0.3s ease !important;
+}
+.btn-custom-greenish:hover{
+  background-color: white !important;
+  border-color:white !important ;
+  color: #2bd885 !important;
+  
 }
 .btn-custom-greyish{
   border-color: #5c5c5c !important;
+  transition:all 0.3s ease !important;
+
+
+}
+.btn-custom-greyish:hover{
+  background-color: white !important;
+  border-color:white !important ;
+  color: #5c5c5c !important;
+
 
 }
 .btn-custom-icon{
   border-color: #3e3e3e !important;
   background-color:#3e3e3e !important ;
   
+}
+.todo-container{
+  transition:all 0.3s ease
+}
+.todo-container:hover{
+   
+  transform: scale(1.01);
+}
+
+.on-check{
+  transition:all 0.3s ease
+}
+.on-check:hover{
+  color: #2bd885;
+}
+.on-delete{
+  transition:all 0.3s ease
+}
+.on-delete:hover{
+  color: rgb(240, 23, 23);
 }
 

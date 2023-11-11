@@ -1,18 +1,15 @@
-import React from 'react'
 import { Todo } from '../types';
-import { Button, Col, Container, Row, Stack } from 'react-bootstrap';
-import axios from 'axios';
+import { Button,  Container,  Stack } from 'react-bootstrap';
 import { deleteTodo, putTodo } from '../apiService';
 import { FaCheck, FaTrash } from 'react-icons/fa'; // Import the delete icon from Font Awesome
 
 
 
-function TodoItem({ todo, onChange,isVisible }: { todo: Todo; onChange: () => void ;isVisible:boolean}) {
+function TodoItem({ todo, onChange, isVisible }: { todo: Todo; onChange: () => void; isVisible: boolean }) {
 
     const handleComplete = async () => {
         try {
-            //submit post request
-            // const response = await axios.put('http://localhost:50199/api/Todo'+prop.Id,{IsCompleted:'1'});
+
             await putTodo('Todo/' + todo.Id, { IsCompleted: '1' })
             onChange();
 
@@ -22,9 +19,7 @@ function TodoItem({ todo, onChange,isVisible }: { todo: Todo; onChange: () => vo
     }
     const handleDelete = async () => {
         try {
-            //submit post request
-            // const response = await axios.delete("http://localhost:50199/api/Todo/"+prop.Id);
-            // const todos = response.data;
+
             await deleteTodo('Todo/' + todo.Id)
             onChange();
 
@@ -34,7 +29,7 @@ function TodoItem({ todo, onChange,isVisible }: { todo: Todo; onChange: () => vo
     }
     return (
         <div>
-            <Container >
+            <Container className='todo-container' >
                 <Stack direction='horizontal' gap={4} className='shadow  rounded p-3 m-2 todo-item'>
 
                     <div className='me-auto text-start '>
@@ -46,12 +41,12 @@ function TodoItem({ todo, onChange,isVisible }: { todo: Todo; onChange: () => vo
 
                     <div>
                         {
-                            isVisible &&(<Button onClick={handleComplete} className='rounded-0 btn-custom-icon'><FaCheck/> </Button>)
+                            isVisible && (<Button onClick={handleComplete} className='rounded-0 btn-custom-icon'><FaCheck className='on-check' /> </Button>)
                         }
-                        
-                       
+
+
                         <Button onClick={handleDelete} className='rounded-0 btn-custom-icon'>
-                            <FaTrash />
+                            <FaTrash className='on-delete' />
                         </Button>
                     </div>
 

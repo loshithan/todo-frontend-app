@@ -1,7 +1,12 @@
 // apiService.ts
 import axios from 'axios';
+// import 'dotenv/config';
 
-const apiUrl = 'http://localhost:50199/api';
+console.log(process.env.REACT_APP_ApiUrl);
+
+
+const apiUrl = process.env.REACT_APP_ApiUrl;
+
 
 export const fetchTodos = async (endpoint: string) => {
   try {

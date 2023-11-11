@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TodoItem from "./TodoItem";
-import axios from "axios";
 import { Todo, Todos } from "../types";
 import { Container, Stack } from "react-bootstrap";
-import { fetchTodos } from "../apiService";
 
 
 
@@ -12,37 +10,26 @@ import { fetchTodos } from "../apiService";
 
 
 export const PendingTodo: React.FC<{todos:Todos,onChange:()=>void}> = ({todos,onChange}) => {
-  // const [todos, setTodos] = useState<Todo[]>([]);
-  // useEffect(() => {
-  //   const fetchTodoFromApi = async () => {
-  //     try {
-  //       //used http instead of https
-  //       const result = await fetchTodos('Todo');
-  //       setTodos(result);
-  //       // console.log(todos);
-        
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-
-  //   fetchTodoFromApi();
-  // }, []);
-  // const pendingTodo = todos.filter((todo)=>{todo.IsCompleted === false})
+  //takes list of todos , onchange callback to trigger app component render
+  
+  //filter pending todos
+  const pendingTodos:Todo[] = todos.todos.filter((todo) => todo.IsCompleted === 0)
 
   return (
     <Container>
       <Stack>
 
       {
-                
-                todos ? (
-                  todos.todos.filter((todo) => todo.IsCompleted === 0).map((todo) => (
+                //check available pending todos 
+                //available then map items to TodoItem component
+                //else render msg
+                pendingTodos.length!==0 ? (
+                  pendingTodos.map((todo) => (
                     <TodoItem key={todo.Id} todo={todo} onChange={onChange} isVisible={true} />)
                     
                     )
                     )
-                    :( <div>no todos</div>)
+                    :(<Container className="pt-3"> <div className="text-greenish"><h3>Create Todo</h3></div></Container>)
         
         
         
